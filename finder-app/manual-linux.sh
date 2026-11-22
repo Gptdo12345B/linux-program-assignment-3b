@@ -65,6 +65,8 @@ git clone git://busybox.net/busybox.git
     make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} defconfig
     # add /bin/bash in busybox
     sed -i 's/# CONFIG_BASH_IS_ASH is not set/CONFIG_BASH_IS_ASH=y/' .config
+    sed -i 's/CONFIG_BASH_IS_NONE=y/# CONFIG_BASH_IS_NONE is not set/' .config
+    make silentoldconfig
 else
     cd busybox
 fi
